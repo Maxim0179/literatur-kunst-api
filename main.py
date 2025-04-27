@@ -3,6 +3,10 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
+@app.get("/")
+def root():
+    return {"message": "Literatur-Kunst-API is alive!"}
+
 class QueryRequest(BaseModel):
     prompt: str
 
