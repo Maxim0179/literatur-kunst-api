@@ -1,11 +1,15 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI()
+app = FastAPI(
+    title="Literatur und Kunst API Manager",
+    description="Eine API zur Suche nach Büchern, Autoren, Kunstwerken und zur Erstellung von DALL-E Prompts basierend auf gefundenen Stilen.",
+    version="1.0.0"
+)
 
 @app.get("/")
 def root():
-    return {"message": "Literatur-Kunst-API is alive!"}
+    return {"message": "Willkommen zur Literatur-Kunst-API. Bitte rufe /docs für die API-Dokumentation auf."}
 
 class QueryRequest(BaseModel):
     prompt: str
